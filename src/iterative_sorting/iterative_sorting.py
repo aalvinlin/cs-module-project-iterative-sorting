@@ -24,11 +24,32 @@ def selection_sort(arr):
 
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
-    # Your code here
+    
+    while True:
+   
+        # keep track of the number of swaps this round
+        swaps_this_round = 0
 
+        for i in range(len(arr)):
 
-    return arr
+            current_item = arr[i]
 
+            # compare current item with each item to the right
+            for j in range(i + 1, len(arr)):
+
+                item_to_the_right = arr[j]
+
+                # if current item should be moved to the right, swap the items
+                # also increment counter for number of swaps
+                if current_item > item_to_the_right:
+
+                    arr[i], arr[j] = arr[j], arr[i]
+                    
+                    swaps_this_round += 1
+
+        # array is sorted if there are no swaps made this round
+        if swaps_this_round == 0:
+            return arr
 
 # STRETCH: implement the Count Sort function below
 def count_sort(arr, maximum=-1):
