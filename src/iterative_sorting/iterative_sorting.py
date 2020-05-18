@@ -1,17 +1,24 @@
 # TO-DO: Complete the selection_sort() function below
 def selection_sort(arr):
     # loop through n-1 elements
-    for i in range(0, len(arr) - 1):
-        cur_index = i
-        smallest_index = cur_index
-        # TO-DO: find next smallest element
-        # (hint, can do in 3 loc)
-        # Your code here
+    # treat the item at index 0 as already sorted
+    for i in range(1, len(arr)):
+        
+        current_unsorted_index = i
+        current_unsorted_value = arr[current_unsorted_index]
 
+        # smallest_index = current_unsorted_index
 
-        # TO-DO: swap
-        # Your code here
+        # compare current item with each item in the sorted section
+        # start from the right hand side
+        for already_sorted_index in range(0, current_unsorted_index, -1):
 
+            current_sorted_value = arr[already_sorted_index]
+
+            # if the item being palced is smaller than the current item, swap the two
+            if current_unsorted_value < current_sorted_value:
+                arr[already_sorted_index], arr[current_unsorted_index] = arr[current_unsorted_index], arr[already_sorted_index]
+        
     return arr
 
 
