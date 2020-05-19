@@ -62,6 +62,11 @@ def count_sort(arr, maximum=-1):
 
     # add up the frequencies of each item in the original array
     for number in arr:
+
+        # stop if a negative number is detected
+        if number < 0:
+            return "Error, negative numbers not allowed in Count Sort"
+
         frequencies[number] += 1
 
     # compute starting indices for each number by adding the value stored at the previous index
@@ -73,7 +78,7 @@ def count_sort(arr, maximum=-1):
     frequencies = [0] + frequencies
 
     # create a new array to return
-    sorted_array = [0 for value in range(max(arr) + 1)]
+    sorted_array = [0 for value in range(len(arr))]
 
     # check each item in the original array and find where it should go in the sorted array
     for number in arr:
