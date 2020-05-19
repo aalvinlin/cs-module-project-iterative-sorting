@@ -6,30 +6,18 @@ def selection_sort(arr):
         
         current_unsorted_index = i
         current_unsorted_value = arr[current_unsorted_index]
-
-        print("\nstart of round", i, arr)
-        print("  inserting value", current_unsorted_value)
-        
-        # smallest_index = current_unsorted_index
-
+   
         # compare current item with each item in the sorted section
         # start from the right hand side
         for already_sorted_index in range(current_unsorted_index - 1, -1, -1):
 
             current_sorted_value = arr[already_sorted_index]
 
-            print("    checking unsorted value", current_unsorted_value, "against index", already_sorted_index, "with value", arr[already_sorted_index])
-
             # if the item being palced is smaller than the current item, swap the two
             if current_unsorted_value < current_sorted_value:
                 
                 arr[already_sorted_index], arr[already_sorted_index + 1] = arr[already_sorted_index + 1], arr[already_sorted_index]
-
-                print("     ", current_unsorted_value, "<", current_sorted_value, "so a swap will happen...")
-                print("     ", arr, "is the current state")
-
-        print("  done moving into place")
-        
+  
     return arr
 
 
