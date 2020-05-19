@@ -53,8 +53,12 @@ def bubble_sort(arr):
 # STRETCH: implement the Count Sort function below
 def count_sort(arr, maximum=-1):
     
+    # edge case: empty array
+    if len(arr) == 0:
+        return arr
+
     # create an array to store the occurences of each number from 0 to the maximum value of the array
-    frequencies = [0 for value in range(max(arr))]
+    frequencies = [0 for value in range(max(arr) + 1)]
 
     # add up the frequencies of each item in the original array
     for number in arr:
@@ -66,10 +70,10 @@ def count_sort(arr, maximum=-1):
 
     # shift all elements one step over by appending a zero and removing the last element
     frequencies.pop()
-    frequencies.unshift(0)
+    frequencies = [0] + frequencies
 
     # create a new array to return
-    sorted_array = []
+    sorted_array = [0 for value in range(max(arr) + 1)]
 
     # check each item in the original array and find where it should go in the sorted array
     for number in arr:
