@@ -23,9 +23,10 @@ def selection_sort(arr):
             # if the item being palced is smaller than the current item, swap the two
             if current_unsorted_value < current_sorted_value:
                 
-                arr[already_sorted_index], arr[current_unsorted_index] = arr[current_unsorted_index], arr[already_sorted_index]
+                arr[already_sorted_index], arr[already_sorted_index + 1] = arr[already_sorted_index + 1], arr[already_sorted_index]
 
-                print("     ", current_unsorted_value, "<", current_sorted_value, "so a swap will happen")
+                print("     ", current_unsorted_value, "<", current_sorted_value, "so a swap will happen...")
+                print("     ", arr, "is the current state")
 
         print("  done moving into place")
         
